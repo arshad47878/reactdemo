@@ -151,6 +151,15 @@ function Navbar() {
               {' '}
               Jewellery
             </Button>
+
+            <Button
+              sx={{ m: 1 }}
+              variant='contained'
+              onClick={() => navigate('/users')}
+            >
+              {' '}
+              Users
+            </Button>
           </Box>
 
           <IconButton color="inherit" aria-label="add to shopping cart">
