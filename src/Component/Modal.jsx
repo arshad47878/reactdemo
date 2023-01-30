@@ -5,6 +5,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import {
   Card,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
   Stack,
   Table,
   TableBody,
@@ -51,6 +57,9 @@ export default function ModalQuick({
     name: "",
     email: "",
     phone: "",
+    gender: "",
+    Adress1: "",
+    Adress2: "",
   });
 
   console.log("editIdDataForm", editIdData);
@@ -88,20 +97,24 @@ export default function ModalQuick({
         { ...formData, id: Math.floor(Math.random() * 100) },
       ]);
     }
-    setFormData({ name: "", email: "", phone: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      gender: "",
+      Adress1: "",
+      Adress2: "",
+    });
   }
   return (
     <Container>
-      <Button
-        variant="contained"
-        onClick={() => handleOpen(() => setOpen(true))}
-      >
+      <Button variant="contained" onClick={() => setOpen(true)}>
         ADD User
       </Button>
       <Modal
         keepMounted
         open={open}
-        onClose={() => handleClose(() => setOpen(false))}
+        onClose={() => setOpen(false)}
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
       >
@@ -136,6 +149,51 @@ export default function ModalQuick({
                 value={formData.phone}
                 onChange={handleChange}
               />
+
+              <TextField
+                label="Adress1"
+                name="Adress1"
+                // value={editIdData?.id ? editIdData.phone : formData.phone}
+                value={formData.Adress1}
+                onChange={handleChange}
+              />
+              <TextField
+                label="Adress2"
+                name="Adress2"
+                // value={editIdData?.id ? editIdData.phone : formData.phone}
+                value={formData.Adress2}
+                onChange={handleChange}
+              />
+              <FormControl>
+                <FormLabel id="demo-controlled-radio-buttons-group">
+                  Gender
+                </FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="controlled-radio-buttons-group"
+                  value={formData.gender}
+                  onChange={handleChange}
+                >
+                  <FormControlLabel
+                    value="female"
+                    control={<Radio />}
+                    label="Female"
+                  />
+                  <FormControlLabel
+                    value="male"
+                    control={<Radio />}
+                    label="Male"
+                  />
+                </RadioGroup>
+              </FormControl>
+              {/* <FormLabel id="demo-controlled-radio-buttons-group">
+                  City 1
+                </FormLabel>
+              <Checkbox
+                checked={formData.checked}
+                onChange={handleChange}
+                inputProps={{ "aria-label": "controlled" }}
+              /> */}
               {editIdData?.id ? (
                 <Button
                   variant="contained"

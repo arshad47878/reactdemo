@@ -16,7 +16,7 @@ import ModalQuick from "./Modal";
 
 const UserList = () => {
   // const [show, setShow] = useState(false);
-  const [showFrm, setShowFrm] = useState(false);
+  // const [showFrm, setShowFrm] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [editIdData, setEditIdData] = useState('');
   const handleOpen = (fn) => {
@@ -78,6 +78,9 @@ const UserList = () => {
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Phone No.</TableCell>
+                <TableCell>Gender</TableCell>
+                <TableCell>Adress 1</TableCell>
+                <TableCell>Adress 2</TableCell>
                 <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
@@ -90,6 +93,9 @@ const UserList = () => {
                     <TableCell>{data.name}</TableCell>
                     <TableCell>{data.email}</TableCell>
                     <TableCell>{data.phone}</TableCell>
+                    <TableCell>{}</TableCell>
+                    <TableCell>{data.Adress1}</TableCell>
+                    <TableCell>{data.Adress2}</TableCell>
 
                     {data.id !== "" && (
                       <TableCell>
